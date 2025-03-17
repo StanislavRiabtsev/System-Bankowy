@@ -15,92 +15,111 @@
 </head>
 
 <body>
-    <section class="System-Bankowy">
-        <div class="container_bank">
-            <img src="img/Logobank.png" alt="logo" class="System-Bankowy__logo">
-            <h1 class="title">Flow Bank</h1>
-            <div class="account">
-                <a href="#" class="System-Bankowy__btn_log">Login</a>
-                <a href="#" class="System-Bankowy__btn_reg">Register</a>
+    <section class="system-bankowy">
+        <div class="container">
+            <div class="container_bank">
+                <img src="img/Logobank.png" alt="logo" class="system-bankowy__logo">
+                <h1 class="title">Flow Bank</h1>
+                <div class="account">
+                    <a href="#" class="system-bankowy__btn_log">Login</a>
+                    <a href="#" class="system-bankowy__btn_reg">Register</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- <hr class="System__line"> -->
-
-    <nav class="Services">
+    <nav class="services">
         <div class="container">
-            <div class="Services_button">
-                <a href="#" class="Services__btn">Card</a>
-                <a href="#" class="Services__btn">Credit</a>
-                <a href="#" class="Services__btn">Deposit</a>
-                <a href="#" class="Services__btn">Department</a>
-                <a href="#" class="Services__btn">Conversion</a>
+            <div class="services_button">
+                <a href="#" class="services__btn">Card</a>
+                <a href="#" class="services__btn">Credit</a>
+                <a href="#" class="services__btn">Deposit</a>
+                <a href="#" class="services__btn">Department</a>
+                <a href="#" class="services__btn">Conversion</a>
             </div>
         </div>
     </nav>
 
-    <?php
+    <section class="conversion">
+        <div class="container">
+            <h2 class="title__services">Conversion</h2>
+            <ul class="currency">
+                <li>USD = 3.84 PLN</li>
+                <li>EUR = 4.11 PLN</li>
+                <li>GBP = 4.96 PLN</li>
+                <li>CAD = 2.67</li>
+                <li>CNY = 0.53</li>
+            </ul>
+            <div class="converion__input">
 
-    class SystemWymianyWalut
-    {
-        private $konta = [];
-        private $kursyWymiany = [
-            'USD' => 4.0,
-            'EUR' => 4.5,
-            'PLN' => 1.0
-        ];
+                <?php
 
-        public function utworzKonto($nazwa, $waluta, $saldo)
-        {
-            if ($saldo >= 0 && isset($this->kursyWymiany[$waluta])) {
-                $this->konta[$nazwa] = ['waluta' => $waluta, 'saldo' => $saldo];
-                echo "Konto $nazwa z saldem $saldo $waluta.<br>";
-            } else {
-                echo "Nieprawidłowe saldo początkowe lub waluta.<br>";
-            }
-        }
+                class SystemWymianyWalut
+                {
+                    private $konta = [];
+                    private $kursyWymiany = [
+                        'USD' => 3.84,
+                        'EUR' => 4.11,
+                        'GBP' => 4.96,
+                        'CAD' => 2.67,
+                        'CNY' => 0.53,
+                        'PLN' => 1.0
+                    ];
 
-        public function wymienWalute($nazwa, $docelowaWaluta)
-        {
-            if (!isset($this->konta[$nazwa])) {
-                echo "Konto $nazwa nie istnieje.<br>";
-                return;
-            }
+                    public function utworzKonto($nazwa, $waluta, $saldo)
+                    {
+                        if ($saldo >= 0 && isset($this->kursyWymiany[$waluta])) {
+                            $this->konta[$nazwa] = ['waluta' => $waluta, 'saldo' => $saldo];
+                            echo "Konto $nazwa z saldem $saldo $waluta.<br>";
+                        } else {
+                            echo "Nieprawidłowe saldo początkowe lub waluta.<br>";
+                        }
+                    }
 
-            $aktualnaWaluta = $this->konta[$nazwa]['waluta'];
-            $saldo = $this->konta[$nazwa]['saldo'];
+                    public function wymienWalute($nazwa, $docelowaWaluta)
+                    {
+                        if (!isset($this->konta[$nazwa])) {
+                            echo "Konto $nazwa nie istnieje.<br>";
+                            return;
+                        }
 
-            if (!isset($this->kursyWymiany[$docelowaWaluta])) {
-                echo "Nieprawidłowa waluta docelowa.<br>";
-                return;
-            }
+                        $aktualnaWaluta = $this->konta[$nazwa]['waluta'];
+                        $saldo = $this->konta[$nazwa]['saldo'];
 
-            $wartoscPLN = $saldo * $this->kursyWymiany[$aktualnaWaluta];
-            $noweSaldo = $wartoscPLN / $this->kursyWymiany[$docelowaWaluta];
+                        if (!isset($this->kursyWymiany[$docelowaWaluta])) {
+                            echo "Nieprawidłowa waluta docelowa.<br>";
+                            return;
+                        }
 
-            $this->konta[$nazwa]['waluta'] = $docelowaWaluta;
-            $this->konta[$nazwa]['saldo'] = round($noweSaldo, 2);
+                        $wartoscPLN = $saldo * $this->kursyWymiany[$aktualnaWaluta];
+                        $noweSaldo = $wartoscPLN / $this->kursyWymiany[$docelowaWaluta];
 
-            echo "$nazwa wymienił środki na $docelowaWaluta. Nowe saldo: {$this->konta[$nazwa]['saldo']} $docelowaWaluta.<br>";
-        }
+                        $this->konta[$nazwa]['waluta'] = $docelowaWaluta;
+                        $this->konta[$nazwa]['saldo'] = round($noweSaldo, 2);
 
-        public function pobierzSaldo($nazwa)
-        {
-            if (!isset($this->konta[$nazwa])) {
-                return "Konto nie istnieje";
-            }
-            return "Saldo {$this->konta[$nazwa]['saldo']} {$this->konta[$nazwa]['waluta']}";
-        }
-    }
+                        echo "$nazwa wymienił środki na $docelowaWaluta. Nowe saldo: {$this->konta[$nazwa]['saldo']} $docelowaWaluta.<br>";
+                    }
 
-    $bank = new SystemWymianyWalut();
-    $bank->utworzKonto("Jan", "PLN", 1000);
-    $bank->utworzKonto("Anna", "PLN", 500);
-    $bank->wymienWalute("Jan", "EUR");
-    $bank->wymienWalute("Anna", "USD");
+                    public function pobierzSaldo($nazwa)
+                    {
+                        if (!isset($this->konta[$nazwa])) {
+                            return "Konto nie istnieje";
+                        }
+                        return "Saldo {$this->konta[$nazwa]['saldo']} {$this->konta[$nazwa]['waluta']}";
+                    }
+                }
 
-    ?>
+                $bank = new SystemWymianyWalut();
+                $bank->utworzKonto("Jan", "PLN", 1000);
+                $bank->utworzKonto("Anna", "PLN", 500);
+                $bank->wymienWalute("Jan", "EUR");
+                $bank->wymienWalute("Anna", "USD");
+
+                ?>
+
+            </div>
+        </div>
+    </section>
 
 </body>
 

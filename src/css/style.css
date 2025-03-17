@@ -47,26 +47,16 @@ html {
     padding: 0 var(--container-padding-inline);
 }
 
-.System-Bankowy {
+.system-bankowy {
     background-color: #3a3d42;
-}
-
-.System__line {
-    width: 100%;
-    height: 1px;
-    margin: 0px;
-    color: #6a6d72;
-    /* color: var(--light-color); */
 }
 
 .container_bank {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 5px 5px;
-    border: 1px solid #6b6b6b;
-    border-radius: 5px;
 }
 
 .title {
@@ -75,40 +65,93 @@ html {
     color: var(--light-color);
 }
 
-.System-Bankowy__btn_log {
-    color: var(--light-color);
-    text-decoration: none;
-}
-
-.System-Bankowy__btn_reg {
-    color: var(--light-color);
-    text-decoration: none;
-}
-
-.System-Bankowy__logo {
+.account {
     display: flex;
-    width: 12vh;
+    column-gap: 10px;
 }
 
-.Services_button {
+.system-bankowy__btn_log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    min-height: 30px;
+    border: 1px solid var(--light-color);
+    border-radius: 3px;
+    padding: 3px 10px;
+    color: var(--light-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.system-bankowy__btn_reg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    min-height: 30px;
+    color: var(--dark-color);
+    text-decoration: none;
+    border: 1px solid var(--light-color);
+    border-radius: 3px;
+    padding: 3px 10px;
+    background-color: var(--light-color);
+    cursor: pointer;
+}
+
+.system-bankowy__logo {
+    display: flex;
+    width: 10vh;
+}
+
+.services_button {
     display: flex;
     margin-top: 5px;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid #6b6b6b;
     border-radius: 5px;
     padding: 10px 10px;
     background-color: #3a3d42;
 }
 
-.Services__btn {
+.services__btn {
     color: var(--light-color);
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
 }
 
-a.Services__btn {
-    border: 1px solid #6b6b6b;
-    border-radius: 5px;
+.title__services {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.conversion {
+    color: var(--light-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.currency {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid var(--light-color);
+    border-radius: 3px 0 3px 0;
+}
+
+li {
+    list-style-type: none;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.converion__input {
+    border: 1px solid var(--light-color);
+    border-radius: 3px 0 3px 0;
+    padding: 15px;
 }
