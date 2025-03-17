@@ -44,78 +44,71 @@
         <div class="container">
             <h2 class="title__services">Conversion</h2>
             <ul class="currency">
-                <li>USD = 3.84 PLN</li>
-                <li>EUR = 4.11 PLN</li>
-                <li>GBP = 4.96 PLN</li>
-                <li>CAD = 2.67</li>
-                <li>CNY = 0.53</li>
+                <li><img src="icons/united-states.png" alt="china" class="currency__icons"></li>
+                <li>USD</li>
+                <li><img src="icons/european-union.png" alt="china" class="currency__icons"></li>
+                <li>EUR</li>
+                <li><img src="icons/united-kingdom.png" alt="china" class="currency__icons"></li>
+                <li>GBP</li>
+                <li><img src="icons/canada.png" alt="china" class="currency__icons"></li>
+                <li>CAD</li>
+                <li><img src="icons/china.png" alt="china" class="currency__icons"></li>
+                <li>CNY</li>
             </ul>
-            <div class="converion__input">
+            <div class="conversion__input">
 
                 <?php
+                // Kursy walut względem PLN
+                $kursyWalut = [
+                    "USD" => 3.84,
+                    "EUR" => 4.11,
+                    "GBP" => 4.96,
+                    "CAD" => 2.67,
+                    "CNY" => 0.53
+                ];
 
-                class SystemWymianyWalut
-                {
-                    private $konta = [];
-                    private $kursyWymiany = [
-                        'USD' => 3.84,
-                        'EUR' => 4.11,
-                        'GBP' => 4.96,
-                        'CAD' => 2.67,
-                        'CNY' => 0.53,
-                        'PLN' => 1.0
-                    ];
+                $kwota = isset($_POST['kwota']) ? (float)$_POST['kwota'] : 0;
+                $walutaZ = isset($_POST['waluta_z']) ? $_POST['waluta_z'] : 'USD';
+                $walutaDo = isset($_POST['waluta_do']) ? $_POST['waluta_do'] : 'EUR';
+                $wynik = 0;
 
-                    public function utworzKonto($nazwa, $waluta, $saldo)
-                    {
-                        if ($saldo >= 0 && isset($this->kursyWymiany[$waluta])) {
-                            $this->konta[$nazwa] = ['waluta' => $waluta, 'saldo' => $saldo];
-                            echo "Konto $nazwa z saldem $saldo $waluta.<br>";
-                        } else {
-                            echo "Nieprawidłowe saldo początkowe lub waluta.<br>";
-                        }
-                    }
-
-                    public function wymienWalute($nazwa, $docelowaWaluta)
-                    {
-                        if (!isset($this->konta[$nazwa])) {
-                            echo "Konto $nazwa nie istnieje.<br>";
-                            return;
-                        }
-
-                        $aktualnaWaluta = $this->konta[$nazwa]['waluta'];
-                        $saldo = $this->konta[$nazwa]['saldo'];
-
-                        if (!isset($this->kursyWymiany[$docelowaWaluta])) {
-                            echo "Nieprawidłowa waluta docelowa.<br>";
-                            return;
-                        }
-
-                        $wartoscPLN = $saldo * $this->kursyWymiany[$aktualnaWaluta];
-                        $noweSaldo = $wartoscPLN / $this->kursyWymiany[$docelowaWaluta];
-
-                        $this->konta[$nazwa]['waluta'] = $docelowaWaluta;
-                        $this->konta[$nazwa]['saldo'] = round($noweSaldo, 2);
-
-                        echo "$nazwa wymienił środki na $docelowaWaluta. Nowe saldo: {$this->konta[$nazwa]['saldo']} $docelowaWaluta.<br>";
-                    }
-
-                    public function pobierzSaldo($nazwa)
-                    {
-                        if (!isset($this->konta[$nazwa])) {
-                            return "Konto nie istnieje";
-                        }
-                        return "Saldo {$this->konta[$nazwa]['saldo']} {$this->konta[$nazwa]['waluta']}";
-                    }
+                if ($kwota > 0 && isset($kursyWalut[$walutaZ]) && isset($kursyWalut[$walutaDo])) {
+                    // Konwersja do PLN, a następnie do docelowej waluty
+                    $kwotaWPLN = $kwota * $kursyWalut[$walutaZ];
+                    $wynik = $kwotaWPLN / $kursyWalut[$walutaDo];
                 }
-
-                $bank = new SystemWymianyWalut();
-                $bank->utworzKonto("Jan", "PLN", 1000);
-                $bank->utworzKonto("Anna", "PLN", 500);
-                $bank->wymienWalute("Jan", "EUR");
-                $bank->wymienWalute("Anna", "USD");
-
                 ?>
+
+                <form method="post" class="conversion__form">
+                    <label for="waluta_z" class="conversion__label">Currency you have:</label>
+                    <select name="waluta_z" id="waluta_z" class="conversion__select">
+                        <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
+                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                            <?php echo $waluta; ?>
+                        </option>
+                        <?php } ?>
+                    </select>
+
+                    <label for="waluta_do" class="conversion__label">Currency you are exchanging for:</label>
+                    <select name="waluta_do" id="waluta_do" class="conversion__select">
+                        <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
+                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                            <?php echo $waluta; ?>
+                        </option>
+                        <?php } ?>
+                    </select>
+
+                    <label for="kwota" class="conversion__label">Currency Quantity:</label>
+                    <input type="number" name="kwota" id="kwota" class="conversion__input-do"
+                        value="<?php echo $kwota; ?>">
+
+
+                    <button type="submit" class="conversion__btn">Calculate</button>
+
+                </form>
+                <?php if ($kwota > 0) { ?>
+                <p class="result">Result: <?php echo number_format($wynik, 2); ?> <?php echo $walutaDo; ?></p>
+                <?php } ?>
 
             </div>
         </div>
