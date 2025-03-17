@@ -33,6 +33,7 @@ img {
 :root {
     --light-color: #F5F5F7;
     --dark-color: #474A51;
+    --dark-color-title: #3a3d42;
     --container-padding-inline: 13%;
     --footer-padding-inline: 10%;
 }
@@ -40,7 +41,7 @@ img {
 html {
     font-family: "Inter", sans-serif;
     scroll-behavior: smooth;
-    background-color: #474A51;
+    /* background-color: #474A51; */
 }
 
 .container {
@@ -104,6 +105,44 @@ html {
     width: 10vh;
 }
 
+.about__title {
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--dark-color-title);
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.about__title-bank {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 15px;
+    color: var(--dark-color-title);
+}
+
+.about__text {
+    font-weight: 400;
+    font-size: 16px;
+    padding: 15px;
+    color: var(--dark-color-title);
+}
+
+.about__list {
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-bottom: 35px;
+}
+
+.about__list-li {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark-color-title);
+
+}
+
 .services_button {
     display: flex;
     margin-top: 5px;
@@ -123,15 +162,19 @@ html {
 
 .title__services {
     margin-top: 20px;
-    font-size: 20px;
-    font-weight: 600;
+    padding: 20px;
+    color: var(--light-color);
+    font-size: 26px;
+    font-weight: 700;
     text-align: center;
 }
 
 .conversion {
+    background-color: #474A51;
     color: var(--light-color);
     font-size: 16px;
     font-weight: 600;
+    padding-bottom: 50px;
 }
 
 .currency {
@@ -140,8 +183,6 @@ html {
     align-items: center;
     margin-top: 10px;
     padding: 20px 200px;
-    border: 1px solid var(--light-color);
-    border-radius: 3px 0 3px 0;
 }
 
 .currency__icons {
@@ -149,7 +190,7 @@ html {
 
 }
 
-li {
+.currency__list {
     list-style-type: none;
     font-weight: 300;
     font-size: 16px;
@@ -157,8 +198,6 @@ li {
 }
 
 .conversion__input {
-    border: 1px solid var(--light-color);
-    border-radius: 3px 0 3px 0;
     padding: 15px;
 }
 
@@ -205,7 +244,9 @@ input {
 
 .conversion__btn {
     color: var(--light-color);
-    padding: 5px;
+    width: 100px;
+    min-height: 30px;
+    padding: 3px 10px;
     border-radius: 3px;
     background: var(--dark-color);
 }

@@ -35,25 +35,58 @@
                 <a href="#" class="services__btn">Credit</a>
                 <a href="#" class="services__btn">Deposit</a>
                 <a href="#" class="services__btn">Department</a>
-                <a href="#" class="services__btn">Conversion</a>
+                <a href="#Change" class="services__btn">Conversion</a>
             </div>
         </div>
     </nav>
 
+    <section class="about">
+        <div class="container">
+            <h2 class="about__title">About bank</h2>
+            <h3 class="about__title-bank">FlowBank: A Swiss Digital Banking and Trading Platform</h3>
+            <p class="about__text">FlowBank is a Swiss fintech company that operates as both a digital bank and a
+                broker, offering a
+                comprehensive suite of financial services. Founded in 2020, FlowBank secured a full Swiss banking
+                license and launched its operations later that year. The company is headquartered in Geneva and is
+                regulated by the Swiss Financial Market Supervisory Authority (FINMA).</p>
+            <h3 class="about__title-bank">Key Features of FlowBank:</h3>
+            <ul class="about__list">
+                <li class="about__list-li">Digital Banking: FlowBank provides online banking services, including
+                    multi-currency accounts and
+                    credit cards, all accessible through a mobile app. This allows users to manage their finances
+                    digitally without the need for physical branches.</li>
+                <li class="about__list-li">Trading Platform: FlowBank offers a robust trading platform, FlowBank Pro,
+                    which caters to both
+                    beginner and advanced investors. The platform supports trading in a wide range of financial
+                    instruments, including stocks, bonds, ETFs, options, futures, forex, commodities, and CFDs. Users
+                    can access these services via desktop, mobile, or web applications.</li>
+                <li class="about__list-li">Low Fees: FlowBank is known for its competitive fee structure, making it an
+                    attractive option for
+                    traders. It charges a custody fee of 0.10% with a minimum of CHF 40 and a maximum of CHF 200. Broker
+                    fees are also relatively low, with a commission of CHF 6.50 on shares or ETFs traded on the Swiss
+                    stock exchange.</li>
+                <li class="about__list-li">Security and Regulation: FlowBank emphasizes security, with deposits
+                    guaranteed up to CHF 100,000.
+                    It uses bank-grade security measures and is ISO27001 certified, ensuring high standards of data
+                    protection.</li>
+            </ul>
+        </div>
+    </section>
+
     <section class="conversion">
         <div class="container">
-            <h2 class="title__services">Conversion</h2>
+            <h2 id="Change" class="title__services">Conversion</h2>
             <ul class="currency">
-                <li><img src="icons/united-states.png" alt="china" class="currency__icons"></li>
-                <li>USD</li>
-                <li><img src="icons/european-union.png" alt="china" class="currency__icons"></li>
-                <li>EUR</li>
-                <li><img src="icons/united-kingdom.png" alt="china" class="currency__icons"></li>
-                <li>GBP</li>
-                <li><img src="icons/canada.png" alt="china" class="currency__icons"></li>
-                <li>CAD</li>
-                <li><img src="icons/china.png" alt="china" class="currency__icons"></li>
-                <li>CNY</li>
+                <li class="currency__list"><img src="icons/united-states.png" alt="china" class="currency__icons"></li>
+                <li class="currency__list">USD</li>
+                <li class="currency__list"><img src="icons/european-union.png" alt="china" class="currency__icons"></li>
+                <li class="currency__list">EUR</li>
+                <li class="currency__list"><img src="icons/united-kingdom.png" alt="china" class="currency__icons"></li>
+                <li class="currency__list">GBP</li>
+                <li class="currency__list"><img src="icons/canada.png" alt="china" class="currency__icons"></li>
+                <li class="currency__list">CAD</li>
+                <li class="currency__list"><img src="icons/china.png" alt="china" class="currency__icons"></li>
+                <li class="currency__list">CNY</li>
             </ul>
             <div class="conversion__input">
 
