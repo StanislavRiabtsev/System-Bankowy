@@ -83,6 +83,7 @@ html {
     color: var(--light-color);
     text-decoration: none;
     cursor: pointer;
+    transition: all 0.4s ease-out;
 }
 
 .system-bankowy__btn_reg {
@@ -98,6 +99,12 @@ html {
     padding: 3px 10px;
     background-color: var(--light-color);
     cursor: pointer;
+    transition: all 0.4s ease-out;
+}
+
+.btn_animation:hover {
+    font-weight: 700;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.62);
 }
 
 .system-bankowy__logo {
@@ -149,15 +156,22 @@ html {
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    padding: 10px 10px;
     background-color: #3a3d42;
 }
 
 .services__btn {
     color: var(--light-color);
+    width: 100px;
+    min-height: 30px;
+    padding: 10px 10px;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
+}
+
+.btn_ser-an:hover {
+    font-weight: 700;
 }
 
 .title__services {

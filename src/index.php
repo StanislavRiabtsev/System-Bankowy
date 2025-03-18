@@ -21,8 +21,8 @@
                 <img src="img/Logobank.png" alt="logo" class="system-bankowy__logo">
                 <h1 class="title">Flow Bank</h1>
                 <div class="account">
-                    <a href="#" class="system-bankowy__btn_log">Login</a>
-                    <a href="#" class="system-bankowy__btn_reg">Register</a>
+                    <a href="#" class="system-bankowy__btn_log btn_animation">Login</a>
+                    <a href="#" class="system-bankowy__btn_reg btn_animation">Register</a>
                 </div>
             </div>
         </div>
@@ -31,18 +31,18 @@
     <nav class="services">
         <div class="container">
             <div class="services_button">
-                <a href="#" class="services__btn">Card</a>
-                <a href="#" class="services__btn">Credit</a>
-                <a href="#" class="services__btn">Deposit</a>
-                <a href="#" class="services__btn">Department</a>
-                <a href="#Change" class="services__btn">Conversion</a>
+                <a href="#" class="services__btn btn_ser-an">Card</a>
+                <a href="#" class="services__btn btn_ser-an">Credit</a>
+                <a href="#" class="services__btn btn_ser-an">Deposit</a>
+                <a href="#" class="services__btn btn_ser-an">Department</a>
+                <a href="#Change" class="services__btn btn_ser-an">Conversion</a>
             </div>
         </div>
     </nav>
 
     <section class="about">
         <div class="container">
-            <h2 class="about__title">About bank</h2>
+            <h2 class="about__title">About bank </h2>
             <h3 class="about__title-bank">FlowBank: A Swiss Digital Banking and Trading Platform</h3>
             <p class="about__text">FlowBank is a Swiss fintech company that operates as both a digital bank and a
                 broker, offering a
@@ -116,18 +116,18 @@
                     <label for="waluta_z" class="conversion__label">Currency you have:</label>
                     <select name="waluta_z" id="waluta_z" class="conversion__select">
                         <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
-                            <?php echo $waluta; ?>
-                        </option>
+                            <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                                <?php echo $waluta; ?>
+                            </option>
                         <?php } ?>
                     </select>
 
                     <label for="waluta_do" class="conversion__label">Currency you are exchanging for:</label>
                     <select name="waluta_do" id="waluta_do" class="conversion__select">
                         <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
-                            <?php echo $waluta; ?>
-                        </option>
+                            <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                                <?php echo $waluta; ?>
+                            </option>
                         <?php } ?>
                     </select>
 
@@ -140,7 +140,7 @@
 
                 </form>
                 <?php if ($kwota > 0) { ?>
-                <p class="result">Result: <?php echo number_format($wynik, 2); ?> <?php echo $walutaDo; ?></p>
+                    <p class="result">Result: <?php echo number_format($wynik, 2); ?> <?php echo $walutaDo; ?></p>
                 <?php } ?>
 
             </div>
