@@ -41,7 +41,6 @@ img {
 html {
     font-family: "Inter", sans-serif;
     scroll-behavior: smooth;
-    /* background-color: #474A51; */
 }
 
 .container {
@@ -56,7 +55,6 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 5px 5px;
 }
 
@@ -109,7 +107,8 @@ html {
 
 .system-bankowy__logo {
     display: flex;
-    width: 10vh;
+    width: 41px;
+    height: 41px;
 }
 
 .about__title {
