@@ -23,8 +23,8 @@
                     <h1 class="title">Flow Bank</h1>
                 </div>
                 <div class="account">
-                    <a href="#" class="btn__log btn_animation">Login</a>
-                    <a href="#" class="btn__reg btn_animation">Register</a>
+                    <a href="#" class="btn__log">Login</a>
+                    <a href="#" class="btn__reg">Register</a>
                 </div>
             </div>
         </div>
@@ -33,11 +33,11 @@
     <nav class="services">
         <div class="container">
             <div class="services_button">
-                <a href="#" class="services__btn btn_ser-an"><span>Card</span></a>
-                <a href="#" class="services__btn btn_ser-an"><span>Credit</span></a>
-                <a href="#" class="services__btn btn_ser-an"><span>Deposit</span></a>
-                <a href="#" class="services__btn btn_ser-an"><span>Department</span></a>
-                <a href="#Change" class="services__btn btn_ser-an"><span>Conversion</span></a>
+                <a href="#" class="services__btn"><span>Card</span></a>
+                <a href="#" class="services__btn"><span>Credit</span></a>
+                <a href="#" class="services__btn"><span>Deposit</span></a>
+                <a href="#" class="services__btn"><span>Department</span></a>
+                <a href="#Change" class="services__btn"><span>Conversion</span></a>
             </div>
         </div>
     </nav>
@@ -79,17 +79,29 @@
         <div class="container">
             <h2 id="Change" class="title__services">Conversion</h2>
             <ul class="currency">
-                <li class="currency__list"><img src="icons/united-states.png" alt="china" class="currency__icons"></li>
-                <li class="currency__list">USD</li>
-                <li class="currency__list"><img src="icons/european-union.png" alt="china" class="currency__icons"></li>
-                <li class="currency__list">EUR</li>
-                <li class="currency__list"><img src="icons/united-kingdom.png" alt="china" class="currency__icons"></li>
-                <li class="currency__list">GBP</li>
-                <li class="currency__list"><img src="icons/canada.png" alt="china" class="currency__icons"></li>
-                <li class="currency__list">CAD</li>
-                <li class="currency__list"><img src="icons/china.png" alt="china" class="currency__icons"></li>
-                <li class="currency__list">CNY</li>
+                <li class="currency__item">
+                    <img src="icons/united-states.png" alt="USD" class="currency__icons">
+                    <span>USD</span>
+                </li>
+                <li class="currency__item">
+                    <img src="icons/european-union.png" alt="EUR" class="currency__icons">
+                    <span>EUR</span>
+                </li>
+                <li class="currency__item">
+                    <img src="icons/united-kingdom.png" alt="GBP" class="currency__icons">
+                    <span>GBP</span>
+                </li>
+                <li class="currency__item">
+                    <img src="icons/canada.png" alt="CAD" class="currency__icons">
+                    <span>CAD</span>
+                </li>
+                <li class="currency__item">
+                    <img src="icons/china.png" alt="CNY" class="currency__icons">
+                    <span>CNY</span>
+                </li>
             </ul>
+            <div class="conversion__input">
+            </div>
             <div class="conversion__input">
 
                 <?php

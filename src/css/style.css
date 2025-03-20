@@ -107,7 +107,12 @@ html {
     transition: all 0.4s ease-out;
 }
 
-.btn_animation:hover {
+.btn__log:hover {
+    font-weight: 700;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.62);
+}
+
+.btn__reg:hover {
     font-weight: 700;
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.62);
 }
@@ -182,6 +187,12 @@ html {
     transition: all 0.4s ease-out;
 }
 
+.services__btn:hover {
+    font-weight: 700;
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.4);
+    background: rgba(27, 27, 27, 0.562);
+}
+
 .services__btn span {
     display: flex;
     justify-content: center;
@@ -189,12 +200,6 @@ html {
     width: 100%;
     height: 100%;
     padding: 10px 10px;
-}
-
-.btn_ser-an:hover {
-    font-weight: 700;
-    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.4);
-    background: rgba(27, 27, 27, 0.562);
 }
 
 .title__services {
@@ -222,15 +227,16 @@ html {
     padding: 20px 200px;
 }
 
-.currency__icons {
-    width: 7vh;
-
-}
-
-.currency__list {
+.currency__item {
+    display: flex;
+    align-items: center;
     list-style-type: none;
     font-weight: 300;
     font-size: 16px;
+}
+
+.currency__icons {
+    width: 7vh;
     margin-right: 20px;
 }
 
