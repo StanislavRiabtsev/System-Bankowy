@@ -18,11 +18,13 @@
     <section class="system-bankowy">
         <div class="container">
             <div class="container_bank">
-                <img src="img/Logobank.png" alt="logo" class="system-bankowy__logo">
-                <h1 class="title">Flow Bank</h1>
+                <div class="logo__title">
+                    <img src="img/Logobank.png" alt="logo" class="system-bankowy__logo">
+                    <h1 class="title">Flow Bank</h1>
+                </div>
                 <div class="account">
-                    <a href="#" class="system-bankowy__btn_log btn_animation">Login</a>
-                    <a href="#" class="system-bankowy__btn_reg btn_animation">Register</a>
+                    <a href="#" class="btn__log btn_animation">Login</a>
+                    <a href="#" class="btn__reg btn_animation">Register</a>
                 </div>
             </div>
         </div>
@@ -31,11 +33,11 @@
     <nav class="services">
         <div class="container">
             <div class="services_button">
-                <a href="#" class="services__btn btn_ser-an">Card</a>
-                <a href="#" class="services__btn btn_ser-an">Credit</a>
-                <a href="#" class="services__btn btn_ser-an">Deposit</a>
-                <a href="#" class="services__btn btn_ser-an">Department</a>
-                <a href="#Change" class="services__btn btn_ser-an">Conversion</a>
+                <a href="#" class="services__btn btn_ser-an"><span>Card</span></a>
+                <a href="#" class="services__btn btn_ser-an"><span>Credit</span></a>
+                <a href="#" class="services__btn btn_ser-an"><span>Deposit</span></a>
+                <a href="#" class="services__btn btn_ser-an"><span>Department</span></a>
+                <a href="#Change" class="services__btn btn_ser-an"><span>Conversion</span></a>
             </div>
         </div>
     </nav>
