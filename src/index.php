@@ -105,13 +105,37 @@
             <div class="conversion__input">
 
                 <?php
-                // Kursy walut względem PLN
                 $kursyWalut = [
-                    "USD" => 3.84,
-                    "EUR" => 4.11,
-                    "GBP" => 4.96,
-                    "CAD" => 2.67,
-                    "CNY" => 0.53
+                    "USD" => [
+                        "EUR" => 0.93,
+                        "GBP" => 0.81,
+                        "CAD" => 1.39,
+                        "CNY" => 7.24
+                    ],
+                    "EUR" => [
+                        "USD" => 1.07,
+                        "GBP" => 0.87,
+                        "CAD" => 1.49,
+                        "CNY" => 7.76
+                    ],
+                    "GBP" => [
+                        "USD" => 1.23,
+                        "EUR" => 1.15,
+                        "CAD" => 1.71,
+                        "CNY" => 8.93
+                    ],
+                    "CAD" => [
+                        "USD" => 0.72,
+                        "EUR" => 0.67,
+                        "GBP" => 0.58,
+                        "CNY" => 5.21
+                    ],
+                    "CNY" => [
+                        "USD" => 0.14,
+                        "EUR" => 0.13,
+                        "GBP" => 0.11,
+                        "CAD" => 0.19
+                    ]
                 ];
 
                 $kwota = isset($_POST['kwota']) ? (float)$_POST['kwota'] : 0;
@@ -119,10 +143,8 @@
                 $walutaDo = isset($_POST['waluta_do']) ? $_POST['waluta_do'] : 'EUR';
                 $wynik = 0;
 
-                if ($kwota > 0 && isset($kursyWalut[$walutaZ]) && isset($kursyWalut[$walutaDo])) {
-                    // Konwersja do PLN, a następnie do docelowej waluty
-                    $kwotaWPLN = $kwota * $kursyWalut[$walutaZ];
-                    $wynik = $kwotaWPLN / $kursyWalut[$walutaDo];
+                if ($kwota > 0 && isset($kursyWalut[$walutaZ][$walutaDo])) {
+                    $wynik = $kwota * $kursyWalut[$walutaZ][$walutaDo];
                 }
                 ?>
 
