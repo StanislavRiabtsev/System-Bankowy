@@ -5,30 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
     <div class="container">
-        <h2>Register</h2>
+        <h2>Login</h2>
         <div class="form__wrapper">
             <form action="process_login.php" method="post" class="form__login">
-
-                <div class="form__base">
-                    <label for="email" class="form__label">Full Name:</label>
-                    <div class="form__input">
-                        <input type="email" id="email" name="email" class="form__input-w" placeholder="Name" required>
-                    </div>
-                </div>
-
-                <div class="form__base">
+                <div class="form__email">
                     <label for="email" class="form__label">Email:</label>
                     <div class="form__input">
                         <input type="email" id="email" name="email" class="form__input-w" placeholder="Email" required>
                     </div>
                 </div>
 
-                <div class="form__base">
+                <div class="form__password">
                     <label for="password" class="form__label">Password:</label>
                     <div class="form__input">
                         <input type="password" id="password" name="password" class="form__input-w"
@@ -36,19 +28,11 @@
                     </div>
                 </div>
 
-                <div class="form__base">
-                    <label for="password" class="form__label">Confirm Password:</label>
-                    <div class="form__input">
-                        <input type="password" id="password" name="password" class="form__input-w"
-                            placeholder="Confirm Password" required>
-                    </div>
-                </div>
-
                 <div class="form__login-btn">
-                    <button type="submit" class="form__btn">Register</button>
+                    <button type="submit" class="form__btn">Login</button>
                 </div>
                 <div class="form__reg">
-                    <p>Already have an account? <a href="register.html">Login here</a></p>
+                    <p>Don't have an account? <a href="register.html">Register here</a></p>
                 </div>
             </form>
         </div>

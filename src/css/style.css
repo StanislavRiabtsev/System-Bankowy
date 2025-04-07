@@ -38,8 +38,12 @@ img {
     --footer-padding-inline: 10%;
 }
 
+body {
+    font-family: "Inter", sans-serif !important;
+}
+
 html {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif !important;
     scroll-behavior: smooth;
 }
 
