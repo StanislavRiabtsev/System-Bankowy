@@ -114,46 +114,15 @@
             <div class="conversion__input">
 
                 <?php
-                $kursyWalut = [
-                    "USD" => [
-                        "EUR" => 0.93,
-                        "GBP" => 0.81,
-                        "CAD" => 1.39,
-                        "CNY" => 7.24
-                    ],
-                    "EUR" => [
-                        "USD" => 1.07,
-                        "GBP" => 0.87,
-                        "CAD" => 1.49,
-                        "CNY" => 7.76
-                    ],
-                    "GBP" => [
-                        "USD" => 1.23,
-                        "EUR" => 1.15,
-                        "CAD" => 1.71,
-                        "CNY" => 8.93
-                    ],
-                    "CAD" => [
-                        "USD" => 0.72,
-                        "EUR" => 0.67,
-                        "GBP" => 0.58,
-                        "CNY" => 5.21
-                    ],
-                    "CNY" => [
-                        "USD" => 0.14,
-                        "EUR" => 0.13,
-                        "GBP" => 0.11,
-                        "CAD" => 0.19
-                    ]
-                ];
+                require 'kursyWalut.php';
 
                 $kwota = isset($_POST['kwota']) ? (float)$_POST['kwota'] : 0;
                 $walutaZ = isset($_POST['waluta_z']) ? $_POST['waluta_z'] : 'USD';
                 $walutaDo = isset($_POST['waluta_do']) ? $_POST['waluta_do'] : 'EUR';
                 $wynik = 0;
 
-                if ($kwota > 0 && isset($kursyWalut[$walutaZ][$walutaDo])) {
-                    $wynik = $kwota * $kursyWalut[$walutaZ][$walutaDo];
+                if ($kwota > 0 && isset($kursyWalut[$walutaZ]) && isset($kursyWalut[$walutaDo])) {
+                    $wynik = ($kwota / $kursyWalut[$walutaZ]) * $kursyWalut[$walutaDo];
                 }
                 ?>
 
@@ -170,7 +139,7 @@
                     <label for="waluta_do" class="conversion__label">Currency you are exchanging for:</label>
                     <select name="waluta_do" id="waluta_do" class="conversion__select">
                         <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                            <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                            <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaDo ? 'selected' : ''; ?>>
                                 <?php echo $waluta; ?>
                             </option>
                         <?php } ?>
@@ -180,13 +149,13 @@
                     <input type="number" name="kwota" id="kwota" class="conversion__input-do"
                         value="<?php echo $kwota; ?>">
 
-
                     <button type="submit" class="conversion__btn">Calculate</button>
-
                 </form>
+
                 <?php if ($kwota > 0) { ?>
                     <p class="result">Result: <?php echo number_format($wynik, 2); ?> <?php echo $walutaDo; ?></p>
                 <?php } ?>
+
 
             </div>
         </div>
