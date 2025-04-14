@@ -3,6 +3,12 @@ document.getElementById('conversionForm').addEventListener('submit', function (e
 
     const formData = new FormData(this);
 
+    const amount = parseFloat(formData.get('kwota'));
+    if (isNaN(amount) || amount <= 0) {
+        alert('Wprowadź poprawną kwotę większą niż 0.');
+        return;
+    }
+
     fetch('konwert.php', {
         method: 'POST',
         body: formData
