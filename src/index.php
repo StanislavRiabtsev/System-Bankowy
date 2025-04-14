@@ -1,3 +1,20 @@
+<?php
+require 'kursyWalut.php';
+
+$walutaZ = $_POST['waluta_z'] ?? 'USD';
+$walutaDo = $_POST['waluta_do'] ?? 'EUR';
+$kwota = $_POST['kwota'] ?? '';
+?>
+
+<?php
+require 'kursyWalut.php';
+
+$kwota = 0;
+$walutaZ = 'USD';
+$walutaDo = 'EUR';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,20 +130,7 @@
             </div>
             <div class="conversion__input">
 
-                <?php
-                require 'kursyWalut.php';
-
-                $kwota = isset($_POST['kwota']) ? (float)$_POST['kwota'] : 0;
-                $walutaZ = isset($_POST['waluta_z']) ? $_POST['waluta_z'] : 'USD';
-                $walutaDo = isset($_POST['waluta_do']) ? $_POST['waluta_do'] : 'EUR';
-                $wynik = 0;
-
-                if ($kwota > 0 && isset($kursyWalut[$walutaZ]) && isset($kursyWalut[$walutaDo])) {
-                    $wynik = ($kwota / $kursyWalut[$walutaZ]) * $kursyWalut[$walutaDo];
-                }
-                ?>
-
-                <form method="post" class="conversion__form">
+                <form id="conversionForm" class="conversion__form">
                     <label for="waluta_z" class="conversion__label">Currency you have:</label>
                     <select name="waluta_z" id="waluta_z" class="conversion__select">
                         <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
@@ -152,11 +156,7 @@
                     <button type="submit" class="conversion__btn">Calculate</button>
                 </form>
 
-                <?php if ($kwota > 0) { ?>
-                    <p class="result">Result: <?php echo number_format($wynik, 2); ?> <?php echo $walutaDo; ?></p>
-                <?php } ?>
-
-
+                <div id="resultBox"></div>
             </div>
         </div>
     </section>
@@ -168,6 +168,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
