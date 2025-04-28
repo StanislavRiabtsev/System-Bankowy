@@ -242,6 +242,7 @@ html {
 .currency__icons {
     width: 7vh;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .conversion__input {

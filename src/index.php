@@ -126,38 +126,34 @@ $walutaDo = 'EUR';
                     <span>CNY</span>
                 </li>
             </ul>
-            <div class="conversion__input">
-            </div>
-            <div class="conversion__input">
 
-                <form id="conversionForm" class="conversion__form">
-                    <label for="waluta_z" class="conversion__label">Currency you have:</label>
-                    <select name="waluta_z" id="waluta_z" class="conversion__select">
-                        <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                            <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
-                                <?php echo $waluta; ?>
-                            </option>
-                        <?php } ?>
-                    </select>
+            <form id="conversionForm" class="conversion__form">
+                <label for="waluta_z" class="conversion__label">Currency you have:</label>
+                <select name="waluta_z" id="waluta_z" class="conversion__select">
+                    <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
+                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                            <?php echo $waluta; ?>
+                        </option>
+                    <?php } ?>
+                </select>
 
-                    <label for="waluta_do" class="conversion__label">Currency you are exchanging for:</label>
-                    <select name="waluta_do" id="waluta_do" class="conversion__select">
-                        <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                            <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaDo ? 'selected' : ''; ?>>
-                                <?php echo $waluta; ?>
-                            </option>
-                        <?php } ?>
-                    </select>
+                <label for="waluta_do" class="conversion__label">Currency you are exchanging for:</label>
+                <select name="waluta_do" id="waluta_do" class="conversion__select">
+                    <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
+                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaDo ? 'selected' : ''; ?>>
+                            <?php echo $waluta; ?>
+                        </option>
+                    <?php } ?>
+                </select>
 
-                    <label for="kwota" class="conversion__label">Currency Quantity:</label>
-                    <input type="number" name="kwota" id="kwota" class="conversion__input-do"
-                        value="<?php echo $kwota; ?>">
+                <label for="kwota" class="conversion__label">Currency Quantity:</label>
+                <input type="number" name="kwota" id="kwota" class="conversion__input-do" value="<?php echo $kwota; ?>">
 
-                    <button type="submit" class="conversion__btn">Calculate</button>
-                </form>
+                <button type="submit" class="conversion__btn">Calculate</button>
+            </form>
 
-                <div id="resultBox"></div>
-            </div>
+            <div id="resultBox"></div>
+        </div>
         </div>
     </section>
 
@@ -167,7 +163,8 @@ $walutaDo = 'EUR';
 
     <div id="root"></div>
 
-    <script type="module" src="react/assets/index-xxx.js"></script>
+    <script type="module" src="/php/System-Bankowy/my-app/dist/assets/index-DeWhnzFy.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
