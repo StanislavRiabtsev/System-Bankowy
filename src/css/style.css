@@ -241,7 +241,7 @@ html {
 
 .currency__icons {
     width: 7vh;
-    margin-right: 20px;
+    margin-right: 5px;
     margin-left: 20px;
 }
 
@@ -297,4 +297,105 @@ input {
     padding: 3px 10px;
     border-radius: 3px;
     background: var(--dark-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .btn__log {
+        width: 60px;
+        font-size: 14px;
+    }
+
+    .btn__reg {
+        width: 60px;
+        font-size: 14px;
+    }
+
+    .services__btn {
+        width: 0;
+        font-size: 14px;
+    }
+
+    .about__title {
+        margin: 0;
+    }
+
+    .about__text {
+        font-size: 14px;
+    }
+
+    .about__title-bank {
+        margin: 0;
+    }
+
+    .about__list-li {
+        font-size: 18px;
+    }
+
+    .about__list-li {
+        font-size: 14px;
+    }
+
+    .title__services {
+        margin: 0;
+    }
+
+    .currency {
+        margin: 0;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 375px) {
+    .services {
+        display: none;
+    }
+
+    .container_bank {
+        padding: 5px 10px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .about__title {
+        padding: 10px;
+    }
+
+    .about__title-bank {
+        padding: 5px;
+    }
+
+    .about__text {
+        padding: 5px;
+    }
+
+    .about__list-li {
+        margin-top: 5px;
+    }
+
+    .title__services {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .currency {
+        padding: 10px 5px;
+    }
+
+    .currency__icons {
+        margin: 0;
+    }
+
+    .conversion__form {
+        margin-top: 10px;
+    }
+
+    form {
+        max-width: 300px;
+    }
 }
