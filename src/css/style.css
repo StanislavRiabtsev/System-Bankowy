@@ -299,7 +299,7 @@ input {
     background: var(--dark-color);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .container {
         padding: 0;
     }
@@ -398,4 +398,4 @@ input {
     form {
         max-width: 300px;
     }
-}
+} */
