@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'db.php';
 require 'kursyWalut.php';
 require 'CurrencyConverter.php';
 
@@ -17,12 +18,9 @@ if ($kwota > 0) {
     try {
         $wynik = $converter->convert($kwota, $walutaZ, $walutaDo);
 
-        $_SESSION['historia'][] = [
-            'z' => $walutaZ,
-            'do' => $walutaDo,
-            'kwota' => $kwota,
-            'wynik' => number_format($wynik, 2)
-        ];
+        $stmt = $pdo->prepare("INSERT INTO konwersje (kwota, waluta_z, waluta_do, wynik) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$kwota, $walutaZ, $walutaDo, number_format($wynik, 2)]);
+
 
         setcookie('ostatnia_waluta_z', $walutaZ, time() + (86400 * 30), "/");
         setcookie('ostatnia_waluta_do', $walutaDo, time() + (86400 * 30), "/");
