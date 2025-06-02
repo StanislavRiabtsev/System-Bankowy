@@ -1,19 +1,11 @@
 <?php
+session_start();
 require 'kursyWalut.php';
 
-$walutaZ = $_POST['waluta_z'] ?? 'USD';
-$walutaDo = $_POST['waluta_do'] ?? 'EUR';
+$walutaZ = $_COOKIE['ostatnia_waluta_z'] ?? ($_POST['waluta_z'] ?? 'USD');
+$walutaDo = $_COOKIE['ostatnia_waluta_do'] ?? ($_POST['waluta_do'] ?? 'EUR');
 $kwota = $_POST['kwota'] ?? '';
 ?>
-
-<?php
-require 'kursyWalut.php';
-
-$kwota = 0;
-$walutaZ = 'USD';
-$walutaDo = 'EUR';
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +23,11 @@ $walutaDo = 'EUR';
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index-DjRj7FCh.css">
     <style>
-        body {
-            font-family: "Inter", sans-serif !important;
-        }
+    body {
+        font-family: "Inter", sans-serif !important;
+    }
     </style>
 
 
@@ -131,18 +124,18 @@ $walutaDo = 'EUR';
                 <label for="waluta_z" class="conversion__label">Currency you have:</label>
                 <select name="waluta_z" id="waluta_z" class="conversion__select">
                     <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
-                            <?php echo $waluta; ?>
-                        </option>
+                    <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaZ ? 'selected' : ''; ?>>
+                        <?php echo $waluta; ?>
+                    </option>
                     <?php } ?>
                 </select>
 
                 <label for="waluta_do" class="conversion__label">Currency you are exchanging for:</label>
                 <select name="waluta_do" id="waluta_do" class="conversion__select">
                     <?php foreach ($kursyWalut as $waluta => $kurs) { ?>
-                        <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaDo ? 'selected' : ''; ?>>
-                            <?php echo $waluta; ?>
-                        </option>
+                    <option value="<?php echo $waluta; ?>" <?php echo $waluta == $walutaDo ? 'selected' : ''; ?>>
+                        <?php echo $waluta; ?>
+                    </option>
                     <?php } ?>
                 </select>
 
@@ -153,7 +146,18 @@ $walutaDo = 'EUR';
             </form>
 
             <div id="resultBox"></div>
-        </div>
+            <?php if (!empty($_SESSION['historia'])): ?>
+            <div class="conversion__history mt-4">
+                <h3>Conversion History</h3>
+                <ul class="list-group">
+                    <?php foreach (array_reverse($_SESSION['historia']) as $item): ?>
+                    <li class="list-group-item">
+                        <?php echo "{$item['kwota']} {$item['z']} → {$item['wynik']} {$item['do']}"; ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -163,7 +167,6 @@ $walutaDo = 'EUR';
 
     <div id="root"></div>
 
-    <script type="module" src="/php/System-Bankowy/my-app/dist/assets/index-DjRj7FCh.css"></script>
     <script type="module" src="/php/System-Bankowy/my-app/dist/assets/index-DeWhnzFy.js"></script>
 
 
