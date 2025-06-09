@@ -3,18 +3,15 @@ session_start();
 require 'kursyWalut.php';
 require 'db.php';
 
-// Получаем последние валюты из cookie или POST, или ставим дефолт
 $walutaZ = $_COOKIE['ostatnia_waluta_z'] ?? ($_POST['waluta_z'] ?? 'USD');
 $walutaDo = $_COOKIE['ostatnia_waluta_do'] ?? ($_POST['waluta_do'] ?? 'EUR');
 $kwota = $_POST['kwota'] ?? '';
 
-// Загружаем историю конверсий (последние 10 записей)
 $historia = [];
 try {
     $stmt = $pdo->query("SELECT * FROM konwersje ORDER BY id DESC LIMIT 10");
     $historia = $stmt->fetchAll();
 } catch (Exception $e) {
-    // можно залогировать ошибку, но чтобы не ломать страницу — просто игнорируем
 }
 ?>
 
@@ -167,7 +164,6 @@ try {
 
             <div id="resultBox" class="mt-3">
                 <?php
-                // Показываем результат конвертации, если он передан через сессию или POST
                 if (isset($_SESSION['conversion_result'])) {
                     echo '<strong>Result: </strong>' . htmlspecialchars($_SESSION['conversion_result']) . ' ' . htmlspecialchars($_SESSION['conversion_currency']);
                     unset($_SESSION['conversion_result'], $_SESSION['conversion_currency']);
