@@ -8,7 +8,7 @@ class CurrencyConverter implements CurrencyConverterInterface
 {
     private array $rates;
 
-    public function __construct(array $rates)
+    public function __construct(array $rates) //przekazywana jest tablica kursów walutowych
     {
         $this->rates = $rates;
     }

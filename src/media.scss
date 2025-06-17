@@ -1,0 +1,100 @@
+@media (max-width: 768px) {
+    &container {
+        padding: 0;
+    }
+
+    .btn {
+
+        &__log,
+        &__reg {
+            width: 60px;
+            font-size: 14px;
+        }
+    }
+
+    .services__btn {
+        width: 0;
+        font-size: 14px;
+    }
+
+    .about {
+        &__title {
+            margin: 0;
+        }
+
+        &__text {
+            font-size: 14px;
+        }
+
+        &__title-bank {
+            margin: 0;
+        }
+
+        &__list-li {
+            font-size: 18px;
+        }
+
+        &__list-li {
+            font-size: 14px;
+        }
+    }
+
+    .title__services {
+        margin: 0;
+    }
+
+    .currency {
+        margin: 0;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 375px) {
+    .services {
+        display: none;
+    }
+
+    .container_bank {
+        padding: 5px 10px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .about {
+        &__title {
+            padding: 10px;
+        }
+
+        &__title-bank,
+        &__text {
+            padding: 5px;
+        }
+
+        &__list-li {
+            margin-top: 5px;
+        }
+    }
+
+    .title__services {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .currency {
+        padding: 10px 5px;
+
+        &__icons {
+            margin: 0;
+        }
+    }
+
+    .conversion__form {
+        margin-top: 10px;
+    }
+
+    form {
+        max-width: 300px;
+    }
+}
